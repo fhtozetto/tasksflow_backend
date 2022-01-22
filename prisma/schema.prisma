@@ -1,0 +1,44 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../prisma/generated/type-graphql"
+}
+
+model Products {
+  id          String     @id @default(uuid())
+  erp_code    String
+  description String?
+  created_at  DateTime   @default(now())
+  Barcodes    Barcodes[]
+  Validity    Validity[]
+
+  @@map("products")
+}
+
+model Barcodes {
+  id         String    @id @default(uuid())
+  product_id String?
+  product    Products? @relation(fields: [product_id], references: [id])
+  created_At DateTime  @default(now())
+
+  @@map("barcodes")
+}
+
+model Validity {
+  id          String    @id @default(uuid())
+  product_id  String?
+  product     Products? @relation(fields: [product_id], references: [id])
+  created_at  DateTime  @default(now())
+  due_date    DateTime?
+  finished_at DateTime
+
+  @@map("validity")
+}

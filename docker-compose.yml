@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  database_tasksflow:
+    image: postgres
+    container_name: database_tasksflow
+    restart: "no"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=tasksflow
+    volumes:
+      - pgdata:/data/postgres
+  # app:
+  #   build: .
+  #   container_name: serverTasksflow
+  #   ports:
+  #     - 3333:3333
+  #   volumes:
+  #     - .:/usr/app
+
+volumes:
+  pgdata:
+    driver: local
