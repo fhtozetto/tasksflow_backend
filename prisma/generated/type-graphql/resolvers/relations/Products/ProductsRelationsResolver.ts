@@ -11,22 +11,22 @@ export class ProductsRelationsResolver {
   @TypeGraphQL.FieldResolver(_type => [Barcodes], {
     nullable: false
   })
-  async Barcodes(@TypeGraphQL.Root() products: Products, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ProductsBarcodesArgs): Promise<Barcodes[]> {
+  async barcodes(@TypeGraphQL.Root() products: Products, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ProductsBarcodesArgs): Promise<Barcodes[]> {
     return getPrismaFromContext(ctx).products.findUnique({
       where: {
         id: products.id,
       },
-    }).Barcodes(args);
+    }).barcodes(args);
   }
 
   @TypeGraphQL.FieldResolver(_type => [Validity], {
     nullable: false
   })
-  async Validity(@TypeGraphQL.Root() products: Products, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ProductsValidityArgs): Promise<Validity[]> {
+  async validity(@TypeGraphQL.Root() products: Products, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ProductsValidityArgs): Promise<Validity[]> {
     return getPrismaFromContext(ctx).products.findUnique({
       where: {
         id: products.id,
       },
-    }).Validity(args);
+    }).validity(args);
   }
 }

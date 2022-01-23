@@ -20,6 +20,11 @@ export class BarcodesCountAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
+  barcode!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
   created_At!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {

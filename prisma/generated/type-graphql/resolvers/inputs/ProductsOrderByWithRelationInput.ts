@@ -33,10 +33,10 @@ export class ProductsOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => BarcodesOrderByRelationAggregateInput, {
     nullable: true
   })
-  Barcodes?: BarcodesOrderByRelationAggregateInput | undefined;
+  barcodes?: BarcodesOrderByRelationAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => ValidityOrderByRelationAggregateInput, {
     nullable: true
   })
-  Validity?: ValidityOrderByRelationAggregateInput | undefined;
+  validity?: ValidityOrderByRelationAggregateInput | undefined;
 }

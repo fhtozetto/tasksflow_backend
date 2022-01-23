@@ -14,11 +14,11 @@ generator typegraphql {
 
 model Products {
   id          String     @id @default(uuid())
-  erp_code    String
+  erp_code    String     @unique
   description String?
   created_at  DateTime   @default(now())
-  Barcodes    Barcodes[]
-  Validity    Validity[]
+  barcodes    Barcodes[]
+  validity    Validity[]
 
   @@map("products")
 }
@@ -27,6 +27,7 @@ model Barcodes {
   id         String    @id @default(uuid())
   product_id String?
   product    Products? @relation(fields: [product_id], references: [id])
+  barcode    String?
   created_At DateTime  @default(now())
 
   @@map("barcodes")

@@ -50,10 +50,10 @@ export class ProductsWhereInput {
   @TypeGraphQL.Field(_type => BarcodesListRelationFilter, {
     nullable: true
   })
-  Barcodes?: BarcodesListRelationFilter | undefined;
+  barcodes?: BarcodesListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => ValidityListRelationFilter, {
     nullable: true
   })
-  Validity?: ValidityListRelationFilter | undefined;
+  validity?: ValidityListRelationFilter | undefined;
 }

@@ -27,5 +27,10 @@ export class BarcodesOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
+  barcode?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
   created_At?: "asc" | "desc" | undefined;
 }

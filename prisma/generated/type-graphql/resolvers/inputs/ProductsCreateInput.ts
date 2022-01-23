@@ -32,10 +32,10 @@ export class ProductsCreateInput {
   @TypeGraphQL.Field(_type => BarcodesCreateNestedManyWithoutProductInput, {
     nullable: true
   })
-  Barcodes?: BarcodesCreateNestedManyWithoutProductInput | undefined;
+  barcodes?: BarcodesCreateNestedManyWithoutProductInput | undefined;
 
   @TypeGraphQL.Field(_type => ValidityCreateNestedManyWithoutProductInput, {
     nullable: true
   })
-  Validity?: ValidityCreateNestedManyWithoutProductInput | undefined;
+  validity?: ValidityCreateNestedManyWithoutProductInput | undefined;
 }

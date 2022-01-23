@@ -20,7 +20,7 @@ export class GroupByBarcodesArgs {
   @TypeGraphQL.Field(_type => [BarcodesScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "product_id" | "created_At">;
+  by!: Array<"id" | "product_id" | "barcode" | "created_At">;
 
   @TypeGraphQL.Field(_type => BarcodesScalarWhereWithAggregatesInput, {
     nullable: true

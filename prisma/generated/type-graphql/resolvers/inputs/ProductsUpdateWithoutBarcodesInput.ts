@@ -34,5 +34,5 @@ export class ProductsUpdateWithoutBarcodesInput {
   @TypeGraphQL.Field(_type => ValidityUpdateManyWithoutProductInput, {
     nullable: true
   })
-  Validity?: ValidityUpdateManyWithoutProductInput | undefined;
+  validity?: ValidityUpdateManyWithoutProductInput | undefined;
 }

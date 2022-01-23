@@ -12,6 +12,11 @@ export class BarcodesCreateWithoutProductInput {
   })
   id?: string | undefined;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  barcode?: string | undefined;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })

@@ -31,5 +31,5 @@ export class ProductsCreateWithoutValidityInput {
   @TypeGraphQL.Field(_type => BarcodesCreateNestedManyWithoutProductInput, {
     nullable: true
   })
-  Barcodes?: BarcodesCreateNestedManyWithoutProductInput | undefined;
+  barcodes?: BarcodesCreateNestedManyWithoutProductInput | undefined;
 }

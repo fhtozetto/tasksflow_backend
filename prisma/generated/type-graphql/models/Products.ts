@@ -30,9 +30,9 @@ export class Products {
   })
   created_at!: Date;
 
-  Barcodes?: Barcodes[];
+  barcodes?: Barcodes[];
 
-  Validity?: Validity[];
+  validity?: Validity[];
 
   @TypeGraphQL.Field(_type => ProductsCount, {
     nullable: true

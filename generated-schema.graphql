@@ -26,6 +26,7 @@ type AggregateValidity {
 }
 
 type Barcodes {
+  barcode: String
   created_At: DateTime!
   id: String!
   product: Products
@@ -34,30 +35,35 @@ type Barcodes {
 
 type BarcodesCountAggregate {
   _all: Int!
+  barcode: Int!
   created_At: Int!
   id: Int!
   product_id: Int!
 }
 
 input BarcodesCountOrderByAggregateInput {
+  barcode: SortOrder
   created_At: SortOrder
   id: SortOrder
   product_id: SortOrder
 }
 
 input BarcodesCreateInput {
+  barcode: String
   created_At: DateTime
   id: String
   product: ProductsCreateNestedOneWithoutBarcodesInput
 }
 
 input BarcodesCreateManyInput {
+  barcode: String
   created_At: DateTime
   id: String
   product_id: String
 }
 
 input BarcodesCreateManyProductInput {
+  barcode: String
   created_At: DateTime
   id: String
 }
@@ -80,6 +86,7 @@ input BarcodesCreateOrConnectWithoutProductInput {
 }
 
 input BarcodesCreateWithoutProductInput {
+  barcode: String
   created_At: DateTime
   id: String
 }
@@ -88,6 +95,7 @@ type BarcodesGroupBy {
   _count: BarcodesCountAggregate
   _max: BarcodesMaxAggregate
   _min: BarcodesMinAggregate
+  barcode: String
   created_At: DateTime!
   id: String!
   product_id: String
@@ -100,24 +108,28 @@ input BarcodesListRelationFilter {
 }
 
 type BarcodesMaxAggregate {
+  barcode: String
   created_At: DateTime
   id: String
   product_id: String
 }
 
 input BarcodesMaxOrderByAggregateInput {
+  barcode: SortOrder
   created_At: SortOrder
   id: SortOrder
   product_id: SortOrder
 }
 
 type BarcodesMinAggregate {
+  barcode: String
   created_At: DateTime
   id: String
   product_id: String
 }
 
 input BarcodesMinOrderByAggregateInput {
+  barcode: SortOrder
   created_At: SortOrder
   id: SortOrder
   product_id: SortOrder
@@ -131,12 +143,14 @@ input BarcodesOrderByWithAggregationInput {
   _count: BarcodesCountOrderByAggregateInput
   _max: BarcodesMaxOrderByAggregateInput
   _min: BarcodesMinOrderByAggregateInput
+  barcode: SortOrder
   created_At: SortOrder
   id: SortOrder
   product_id: SortOrder
 }
 
 input BarcodesOrderByWithRelationInput {
+  barcode: SortOrder
   created_At: SortOrder
   id: SortOrder
   product: ProductsOrderByWithRelationInput
@@ -144,6 +158,7 @@ input BarcodesOrderByWithRelationInput {
 }
 
 enum BarcodesScalarFieldEnum {
+  barcode
   created_At
   id
   product_id
@@ -151,6 +166,7 @@ enum BarcodesScalarFieldEnum {
 
 input BarcodesScalarWhereInput {
   AND: [BarcodesScalarWhereInput!]
+  barcode: StringNullableFilter
   created_At: DateTimeFilter
   id: StringFilter
   NOT: [BarcodesScalarWhereInput!]
@@ -160,6 +176,7 @@ input BarcodesScalarWhereInput {
 
 input BarcodesScalarWhereWithAggregatesInput {
   AND: [BarcodesScalarWhereWithAggregatesInput!]
+  barcode: StringNullableWithAggregatesFilter
   created_At: DateTimeWithAggregatesFilter
   id: StringWithAggregatesFilter
   NOT: [BarcodesScalarWhereWithAggregatesInput!]
@@ -168,12 +185,14 @@ input BarcodesScalarWhereWithAggregatesInput {
 }
 
 input BarcodesUpdateInput {
+  barcode: NullableStringFieldUpdateOperationsInput
   created_At: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   product: ProductsUpdateOneWithoutBarcodesInput
 }
 
 input BarcodesUpdateManyMutationInput {
+  barcode: NullableStringFieldUpdateOperationsInput
   created_At: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
 }
@@ -198,6 +217,7 @@ input BarcodesUpdateManyWithWhereWithoutProductInput {
 }
 
 input BarcodesUpdateWithoutProductInput {
+  barcode: NullableStringFieldUpdateOperationsInput
   created_At: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
 }
@@ -215,6 +235,7 @@ input BarcodesUpsertWithWhereUniqueWithoutProductInput {
 
 input BarcodesWhereInput {
   AND: [BarcodesWhereInput!]
+  barcode: StringNullableFilter
   created_At: DateTimeFilter
   id: StringFilter
   NOT: [BarcodesWhereInput!]
@@ -454,17 +475,17 @@ input NullableStringFieldUpdateOperationsInput {
 
 type Products {
   _count: ProductsCount
-  Barcodes(cursor: BarcodesWhereUniqueInput, distinct: [BarcodesScalarFieldEnum!], orderBy: [BarcodesOrderByWithRelationInput!], skip: Int, take: Int, where: BarcodesWhereInput): [Barcodes!]!
+  barcodes(cursor: BarcodesWhereUniqueInput, distinct: [BarcodesScalarFieldEnum!], orderBy: [BarcodesOrderByWithRelationInput!], skip: Int, take: Int, where: BarcodesWhereInput): [Barcodes!]!
   created_at: DateTime!
   description: String
   erp_code: String!
   id: String!
-  Validity(cursor: ValidityWhereUniqueInput, distinct: [ValidityScalarFieldEnum!], orderBy: [ValidityOrderByWithRelationInput!], skip: Int, take: Int, where: ValidityWhereInput): [Validity!]!
+  validity(cursor: ValidityWhereUniqueInput, distinct: [ValidityScalarFieldEnum!], orderBy: [ValidityOrderByWithRelationInput!], skip: Int, take: Int, where: ValidityWhereInput): [Validity!]!
 }
 
 type ProductsCount {
-  Barcodes: Int!
-  Validity: Int!
+  barcodes: Int!
+  validity: Int!
 }
 
 type ProductsCountAggregate {
@@ -483,12 +504,12 @@ input ProductsCountOrderByAggregateInput {
 }
 
 input ProductsCreateInput {
-  Barcodes: BarcodesCreateNestedManyWithoutProductInput
+  barcodes: BarcodesCreateNestedManyWithoutProductInput
   created_at: DateTime
   description: String
   erp_code: String!
   id: String
-  Validity: ValidityCreateNestedManyWithoutProductInput
+  validity: ValidityCreateNestedManyWithoutProductInput
 }
 
 input ProductsCreateManyInput {
@@ -525,11 +546,11 @@ input ProductsCreateWithoutBarcodesInput {
   description: String
   erp_code: String!
   id: String
-  Validity: ValidityCreateNestedManyWithoutProductInput
+  validity: ValidityCreateNestedManyWithoutProductInput
 }
 
 input ProductsCreateWithoutValidityInput {
-  Barcodes: BarcodesCreateNestedManyWithoutProductInput
+  barcodes: BarcodesCreateNestedManyWithoutProductInput
   created_at: DateTime
   description: String
   erp_code: String!
@@ -585,12 +606,12 @@ input ProductsOrderByWithAggregationInput {
 }
 
 input ProductsOrderByWithRelationInput {
-  Barcodes: BarcodesOrderByRelationAggregateInput
+  barcodes: BarcodesOrderByRelationAggregateInput
   created_at: SortOrder
   description: SortOrder
   erp_code: SortOrder
   id: SortOrder
-  Validity: ValidityOrderByRelationAggregateInput
+  validity: ValidityOrderByRelationAggregateInput
 }
 
 input ProductsRelationFilter {
@@ -616,12 +637,12 @@ input ProductsScalarWhereWithAggregatesInput {
 }
 
 input ProductsUpdateInput {
-  Barcodes: BarcodesUpdateManyWithoutProductInput
+  barcodes: BarcodesUpdateManyWithoutProductInput
   created_at: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   erp_code: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  Validity: ValidityUpdateManyWithoutProductInput
+  validity: ValidityUpdateManyWithoutProductInput
 }
 
 input ProductsUpdateManyMutationInput {
@@ -656,11 +677,11 @@ input ProductsUpdateWithoutBarcodesInput {
   description: NullableStringFieldUpdateOperationsInput
   erp_code: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  Validity: ValidityUpdateManyWithoutProductInput
+  validity: ValidityUpdateManyWithoutProductInput
 }
 
 input ProductsUpdateWithoutValidityInput {
-  Barcodes: BarcodesUpdateManyWithoutProductInput
+  barcodes: BarcodesUpdateManyWithoutProductInput
   created_at: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   erp_code: StringFieldUpdateOperationsInput
@@ -679,17 +700,18 @@ input ProductsUpsertWithoutValidityInput {
 
 input ProductsWhereInput {
   AND: [ProductsWhereInput!]
-  Barcodes: BarcodesListRelationFilter
+  barcodes: BarcodesListRelationFilter
   created_at: DateTimeFilter
   description: StringNullableFilter
   erp_code: StringFilter
   id: StringFilter
   NOT: [ProductsWhereInput!]
   OR: [ProductsWhereInput!]
-  Validity: ValidityListRelationFilter
+  validity: ValidityListRelationFilter
 }
 
 input ProductsWhereUniqueInput {
+  erp_code: String
   id: String
 }
 

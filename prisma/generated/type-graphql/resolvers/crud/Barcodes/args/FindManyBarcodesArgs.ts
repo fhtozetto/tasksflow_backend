@@ -35,5 +35,5 @@ export class FindManyBarcodesArgs {
   @TypeGraphQL.Field(_type => [BarcodesScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "product_id" | "created_At"> | undefined;
+  distinct?: Array<"id" | "product_id" | "barcode" | "created_At"> | undefined;
 }

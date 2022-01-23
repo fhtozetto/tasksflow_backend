@@ -20,6 +20,11 @@ export class BarcodesGroupBy {
   })
   product_id!: string | null;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  barcode!: string | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })

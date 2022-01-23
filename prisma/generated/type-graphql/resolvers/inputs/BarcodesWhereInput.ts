@@ -41,6 +41,11 @@ export class BarcodesWhereInput {
   })
   product?: ProductsRelationFilter | undefined;
 
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  barcode?: StringNullableFilter | undefined;
+
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })

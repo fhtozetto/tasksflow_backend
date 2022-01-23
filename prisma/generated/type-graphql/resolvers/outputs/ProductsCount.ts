@@ -10,10 +10,10 @@ export class ProductsCount {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  Barcodes!: number;
+  barcodes!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  Validity!: number;
+  validity!: number;
 }

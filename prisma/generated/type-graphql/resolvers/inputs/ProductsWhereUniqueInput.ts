@@ -11,4 +11,9 @@ export class ProductsWhereUniqueInput {
     nullable: true
   })
   id?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  erp_code?: string | undefined;
 }
